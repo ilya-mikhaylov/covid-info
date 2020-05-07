@@ -20,7 +20,12 @@ class Statistic extends Component {
   }
   render(){
     console.log("Our state",this.state)
-    return<div>Statistic</div>
+       
+  return<div>
+    <p>totalCases {this.state.countryJSON.totalCases}</p>
+  <p>newCases {this.state.countryJSON.newCases}</p>
+  <p>totalDeaths {this.state.countryJSON.totalDeaths}</p>
+  <p>totalRecovered {this.state.countryJSON.totalRecovered}</p></div>
   }
 }
 function mapStateToProps(state){

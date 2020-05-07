@@ -12,10 +12,10 @@ const moment = require('moment');
 const NewsAPI = require('newsapi');
 
 const newsApiKey = process.env.NEWS_API_KEY;
-const newsApi = new NewsAPI(newsApiKey);
+// const newsApi = new NewsAPI(newsApiKey);
 
 const statsApiKey = process.env.STATS_API_KEY;
-// const statsApi = null;
+const statsApi = null;
 
 
 const fakeNews = {
