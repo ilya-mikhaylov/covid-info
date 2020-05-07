@@ -24,9 +24,7 @@ class Articles extends Component {
   }
 
   render() {
-    // const { json } = this.props.countryJSONasynс;
-    // console.log(json);
-
+   
     const { articleDid } = this.state;
     const { countryJSONasync } = this.props;
     

@@ -1,4 +1,4 @@
-// import { CHANGE } from "./actionTypes";
+import { CHANGE } from "./actionTypes";
 import { CHANGE_ASYNC } from "./actionTypes";
 
 
@@ -15,9 +15,9 @@ export const asyncGetTracks = e => {
   };
 };
 
-// export function changeCountry(e) {
-// 	return {
-// 		type: CHANGE,
-// 		payload: e.target.getAttribute("aria-label")
-// 	}
-// }
+export function changeCountry(e) {
+	return {
+		type: CHANGE,
+		payload: e.target.getAttribute("aria-label")
+	}
+}
