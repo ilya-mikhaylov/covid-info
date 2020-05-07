@@ -383,12 +383,15 @@ app.get('/stats', async (req, res) => {
 });
 
 app.get('/restrictions', async (req, res) => {
+  const { country } = req.query;
   rp(url)
     .then((html) => {
-      // const test = $('h3:contains("Russia")', html).next().text();
-      const response = $('h3:contains("Russia")', html).parent().text();
-      console.log('>>>>>>>>>>>>>');
-      console.log(`${response}`);
+      const response = $(`h3:contains("${country}")`, html)
+        .parent()
+        .text()
+        .split('\n')
+        .slice(2)
+        .join('\n');
       res.json({
         response,
       });
