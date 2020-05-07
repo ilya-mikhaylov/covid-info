@@ -10,6 +10,8 @@ const dotenv = require('dotenv').config();
 const cors = require('cors');
 const moment = require('moment');
 const NewsAPI = require('newsapi');
+const rp = require('request-promise');
+const $ = require('cheerio');
 
 const newsApiKey = process.env.NEWS_API_KEY;
 // const newsApi = new NewsAPI(newsApiKey);
@@ -300,6 +302,7 @@ const fakeStats = [
     lastUpdated: '2020-05-04T08:59:06.097Z',
   },
 ];
+const url = 'https://www.kayak.com/travel-restrictions/';
 
 app.use(cors());
 
@@ -377,6 +380,27 @@ app.get('/stats', async (req, res) => {
     totalDeaths,
     totalRecovered,
   });
+});
+
+app.get('/restrictions', async (req, res) => {
+  const { country } = req.query;
+  rp(url)
+    .then((html) => {
+      const response = $(`h3:contains("${country}")`, html)
+        .parent()
+        .text()
+        .split('\n')
+        .slice(2)
+        .join('\n');
+      res.json({
+        response,
+      });
+    })
+    .catch((err) => {
+      res.json({
+        response: 'No data available.',
+      });
+    });
 });
 
 server.listen(port, () => console.log(`Listening on ${port}`));
