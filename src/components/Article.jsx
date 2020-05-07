@@ -9,6 +9,7 @@ const Article = (props) => (
     <img src={props.article.image} alt={props.article.title} />
     <br/>
     <a href={props.article.url}>Read more</a>
+    <hr/>
   </div>
 );
 
