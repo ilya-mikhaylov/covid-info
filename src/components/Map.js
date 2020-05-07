@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import classes from "../components/mainMap.module.css";
 import { asyncGetTracks } from "../redux/actions/actions";
 
+
 class Map extends Component {
   async getDataRest(country) {
     const response = await fetch(
@@ -96,6 +97,7 @@ class Map extends Component {
           id="chartdiv"
           className={classes.map}
         ></div>
+		{this.props.children}
       </React.Fragment>
     );
   }

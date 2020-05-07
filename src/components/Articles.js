@@ -25,10 +25,10 @@ class Articles extends Component {
   }
 
   render() {
-   
+    console.log("TTTTTT", this.props.limit);
+
     const { articleDid } = this.state;
     const { countryJSONasync } = this.props;
-    
 
     return (
       <React.Fragment>
@@ -57,7 +57,8 @@ class Articles extends Component {
 function mapStateToProps(state) {
   return {
     country: state.country,
-    countryJSONasync: state.countryJSONasync
+    countryJSONasync: state.countryJSONasync,
+    limit: state.limit
   };
 }
 
