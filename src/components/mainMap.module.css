@@ -1,6 +1,7 @@
 .map {
   width: 75%;
   height: 789px;
+  position: relative;
 }
 
 svg {
