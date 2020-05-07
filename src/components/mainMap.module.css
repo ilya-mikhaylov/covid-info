@@ -1,0 +1,12 @@
+.map {
+  width: 75%;
+  height: 789px;
+}
+
+svg {
+    pointer-events: none;
+}
+
+g {
+  pointer-events: bounding-box;
+}
