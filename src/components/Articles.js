@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Article from './Article';
 
 class Articles extends Component {
   state = {
@@ -35,17 +36,19 @@ class Articles extends Component {
           <ul>
             {articleDid.length > 0 &&
               articleDid.map((elem, index) => {
-                return <li key={index}>{elem.title}</li>;
+                return <Article key={index} article={elem} />;
               })}
           </ul>
         ) : (
           <ul>
             {countryJSONasync.json.news.length > 0 &&
               countryJSONasync.json.news.map((elem, index) => {
-                return <li key={index}>{elem.title}</li>;
+                return <Article key={index} article={elem} />;
               })}
           </ul>
+          
         )}
+        
       </React.Fragment>
     );
   }
