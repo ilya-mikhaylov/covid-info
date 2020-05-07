@@ -392,9 +392,15 @@ app.get('/restrictions', async (req, res) => {
         .split('\n')
         .slice(2)
         .join('\n');
-      res.json({
-        response,
-      });
+      if (response === '') {
+        res.json({
+          response: 'No data available.',
+        });
+      } else {
+        res.json({
+          response,
+        });
+      }
     })
     .catch((err) => {
       res.json({
