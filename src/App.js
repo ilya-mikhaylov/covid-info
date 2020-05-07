@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Statistic from './components/Statistic.js'
+import { Provider } from "react-redux";
+import { createStore, compose, applyMiddleware } from "redux";
+import mapReducer from "./redux/reducer/map";
+import reduxThunk from "redux-thunk";
+
+const composeEnhancers =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
+
+const store = createStore(
+  mapReducer,
+  composeEnhancers(applyMiddleware(reduxThunk))
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Statistic />
+      </div>
+    </Provider>
   );
 }
-
 export default App;
