@@ -14,6 +14,7 @@ class Statistic extends Component {
     const json = await response.json();
     return json;
   }
+
   async componentDidMount() {
     const json = await this.getDataRest(this.props.country);
     this.setState(({ countryJSON }) => {
@@ -21,55 +22,43 @@ class Statistic extends Component {
     });
   }
   render() {
-    console.log("Our state", this.state);
-
+    const {
+      totalCases,
+      newCases,
+      totalDeaths,
+      totalRecovered
+	} = this.state.countryJSON;
+	console.log('qqqqqq', this.props.stats);
+	
+	
+	const { stats } = this.props;
     return (
       <>
         <div className="head">
-          <img src="./img/logo.png" className="logo"></img>
           <div className="headText">Covid-19 INFO</div>
-          {/* <div className="selectedCountry"> */}
-          {/* <div className="countryImg"></div> */}
-          {/* <p className="">Wordwide</p> */}
-
-          {/* <div className="stats"> */}
-          {/* <React.Fragment> */}
-          {/* <p id='currentCases'>
-                Total cases {this.state.countryJSON.totalCases} &nbsp; {" "}
-                  {this.state.countryJSON.newCases}
-                </p>
-                <p>
-                  Deaths {this.state.countryJSON.totalDeaths} &nbsp;
-                  Recovered {this.state.countryJSON.totalRecovered}
-				</p> */}
-
-          {/* <div id="stats">
-                  <p id="currentCases">
-                    Total cases: {this.state.countryJSON.totalCases}
-                  </p>
-
-                  <p id="newCases">{this.state.countryJSON.newCases}</p>
-                  <p id="deaths">Deaths: {this.state.countryJSON.totalDeaths}</p>
-
-                  <p id="recovered">
-                    Recovered: {this.state.countryJSON.totalRecovered}
-                  </p>
-				</div> */}
-          <div className="wrapperSecond">
-            <SearchInput className="countryName" />
-            <div className='menuItemsWrapper'>
-              <ul className='menuItems'>
-                <li>
-                  Total cases: {this.state.countryJSON.totalCases}{" "}
-                  <span>{this.state.countryJSON.newCases}</span>
-                </li>
-                <li>Deaths: {this.state.countryJSON.totalDeaths}</li>
-                <li>Recovered: {this.state.countryJSON.totalRecovered}</li>
-              </ul>
-            </div>
-            {/* </React.Fragment> */}
-            {/* </div> */}
-            {/* </div> */}
+          <div className="wrapperSecond"></div>
+          <SearchInput className="countryName" />
+          <div className="menuItemsWrapper">
+			  { stats.length === 0 
+			  ?
+			  this.state.countryJSON && <ul className="menuItems">
+              <li>
+                Total cases: { totalCases }{" "}
+                <span>{ newCases }</span>
+              </li>
+              <li>Deaths: { totalDeaths }</li>
+              <li>Recovered: { totalRecovered }</li>
+			</ul> 
+			: 
+			<ul className="menuItems">
+              <li>
+                Total cases: { stats.totalCases }{" "}
+                <span>{ stats.newCases }</span>
+              </li>
+              <li>Deaths: { stats.totalDeaths }</li>
+              <li>Recovered: { stats.totalRecovered }</li>
+            </ul> }
+            
           </div>
         </div>
       </>
@@ -80,7 +69,8 @@ function mapStateToProps(state) {
   console.log("Store State", state);
   return {
     country: state.country,
-    input: state.input
+    input: state.input,
+    stats: state.stats
   };
 }
 
