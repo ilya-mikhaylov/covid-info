@@ -5,10 +5,10 @@
   border: 1px solid lightgray;
   border-radius: 1.5em;
   overflow: hidden;
-  position: absolute;
+  /* position: absolute; */
   right: 5%;
   top: 35%;
-  margin-top: 17px;
+  /* margin-top: 17px; */
 }
 .wrapper:hover,
 .wrapper.focus {
@@ -25,6 +25,7 @@
   flex: 1;
   width: 100%;
   border: 0;
+  margin-top: 7px;
 }
 .search i {
   color: tomato;
