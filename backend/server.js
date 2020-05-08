@@ -369,6 +369,8 @@ app.get('/stats', async (req, res) => {
   // };
   // request(options, (error, response, body) => {
   //   if (error) throw new Error(error);
+  //   console.log(body);
+    
   //   res.json(body[0]);
   // });
   const {
@@ -392,15 +394,9 @@ app.get('/restrictions', async (req, res) => {
         .split('\n')
         .slice(2)
         .join('\n');
-      if (response === '') {
-        res.json({
-          response: 'No data available.',
-        });
-      } else {
-        res.json({
-          response,
-        });
-      }
+      res.json({
+        response,
+      });
     })
     .catch((err) => {
       res.json({

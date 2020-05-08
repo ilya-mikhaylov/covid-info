@@ -22,9 +22,12 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
+        <nav><Statistic />
+        
+        </nav>
         <Map />
         <Articles />
-        <Statistic />
+        
       </div>
     </Provider>
   );

@@ -18,19 +18,34 @@ class Statistic extends Component {
       return { countryJSON: json };
     })
   }
-  render(){
-    console.log("Our state",this.state)
-       
-  return<div>
-    <p>totalCases {this.state.countryJSON.totalCases}</p>
-  <p>newCases {this.state.countryJSON.newCases}</p>
-  <p>totalDeaths {this.state.countryJSON.totalDeaths}</p>
-  <p>totalRecovered {this.state.countryJSON.totalRecovered}</p></div>
+  render() {
+    console.log("Our state", this.state)
+
+    return <div>
+      <div className="search">
+        <label>WordWide</label>
+        <select>
+          <option>
+            Russia
+          </option>
+          <option>
+            USA
+          </option>
+        </select>
+
+      </div>
+      <div className="statistic">
+        <p>totalCases {this.state.countryJSON.totalCases}&nbsp;
+       newCases {this.state.countryJSON.newCases}</p>
+        <p>totalDeaths {this.state.countryJSON.totalDeaths}&nbsp;
+       totalRecovered {this.state.countryJSON.totalRecovered}</p>
+      </div>
+    </div>
   }
 }
-function mapStateToProps(state){
-  console.log("Store State",state);
-  return{
+function mapStateToProps(state) {
+  console.log("Store State", state);
+  return {
     country: state.country
   };
 }

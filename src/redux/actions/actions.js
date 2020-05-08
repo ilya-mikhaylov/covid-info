@@ -6,7 +6,8 @@ export const asyncGetTracks = e => {
   return async dispatch => {
     let country = e.target.getAttribute("aria-label");
     const response = await fetch(
-      `http://localhost:7000/news?country=${country}`
+      `http://localhost:7000/news?country=${country}`,
+      // `http://localhost:7000/stats?country=${country}`,
     );
 	const json = await response.json();
 	console.log('ACTIONS', json);
