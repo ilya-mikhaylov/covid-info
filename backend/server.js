@@ -313,7 +313,11 @@ app.get('/news', async (req, res) => {
   //   date = date.subtract(offset, 'days');
   // }
   // if (country === undefined) {
-  //   country = 'world';
+  //   country = 'World';
+  // } else if (country === 'S. Korea') {
+  //   country = 'South Korea';
+  // } else if (country === 'N. Korea') {
+  //   country = 'North Korea';
   // }
   // newsApi.v2.everything({
   //   q: `coronavirus ${country}`,
@@ -354,6 +358,10 @@ app.get('/stats', async (req, res) => {
   // let { country } = req.query;
   // if (country === undefined) {
   //   country = 'World';
+  // } else if (country === 'S. Korea') {
+  //   country = 'South Korea';
+  // } else if (country === 'N. Korea') {
+  //   country = 'North Korea';
   // }
   // const options = {
   //   method: 'POST',
@@ -383,30 +391,62 @@ app.get('/stats', async (req, res) => {
 });
 
 app.get('/restrictions', async (req, res) => {
-  const { country } = req.query;
-  rp(url)
-    .then((html) => {
-      const response = $(`h3:contains("${country}")`, html)
-        .parent()
-        .text()
-        .split('\n')
-        .slice(2)
-        .join('\n');
-      if (response === '') {
+  let { country } = req.query;
+  if (country === 'S. Korea') {
+    country = 'South Korea';
+  } else if (country === 'N. Korea') {
+    country = 'North Korea';
+  } else if (country === 'Canada') {
+    rp(url)
+      .then((html) => {
+        const response = $('p:contains("Canada has restricted")', html)
+          .parent()
+          .text()
+          // .split('\n')
+          // .slice(2)
+          // .join('\n');
+          console.log('>>>>>>')
+          console.log(response)
+        if (response === '') {
+          res.json({
+            response: 'No data available.',
+          });
+        } else {
+          res.json({
+            response,
+          });
+        }
+      })
+      .catch((err) => {
         res.json({
           response: 'No data available.',
         });
-      } else {
-        res.json({
-          response,
-        });
-      }
-    })
-    .catch((err) => {
-      res.json({
-        response: 'No data available.',
       });
-    });
+  } else {
+    rp(url)
+      .then((html) => {
+        const response = $(`h3:contains("${country}")`, html)
+          .parent()
+          .text()
+          .split('\n')
+          .slice(2)
+          .join('\n');
+        if (response === '') {
+          res.json({
+            response: 'No data available.',
+          });
+        } else {
+          res.json({
+            response,
+          });
+        }
+      })
+      .catch((err) => {
+        res.json({
+          response: 'No data available.',
+        });
+      });
+  }
 });
 
 server.listen(port, () => console.log(`Listening on ${port}`));
