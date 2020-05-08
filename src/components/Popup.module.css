@@ -8,9 +8,10 @@
 	padding-left: 10px;
 	background: #F2F2F2;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 41px;
+	border-radius: 20px;
 	height: 230px;
 	overflow-y: scroll;
+	z-index: 0;
   
 
 

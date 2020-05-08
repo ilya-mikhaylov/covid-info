@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { asyncGetTracks } from "../redux/actions/actions";
+import { asyncGetTracks, inputValue } from "../redux/actions/actions";
 import classes from "./SearchInput.module.css";
 const { getCodeList } = require("country-list");
 
@@ -15,7 +15,7 @@ class SearchInput extends Component {
     let data = Object.values(getCodeList());
     this.setState({ data });
   }
-  onInput = e => this.setState({ [e.target.id]: e.target.value });
+//   onInput = e => this.setState({ [e.target.id]: e.target.value });
   onFocus = e => e.target.parentNode.parentNode.classList.add("focus");
   onBlur = e => e.target.parentNode.parentNode.classList.remove("focus");
 
@@ -24,7 +24,6 @@ class SearchInput extends Component {
       search: "",
       country: item
     });
-    console.log("55565656555656", item);
   };
 
   render() {
@@ -34,10 +33,8 @@ class SearchInput extends Component {
       return <p>Loading</p>;
     }
     let filtered = data.filter(item =>
-      item.toLowerCase().includes(search.toLowerCase())
+      item.toLowerCase().includes(input.toLowerCase())
     );
-
-    
 
     return (
       <div>
@@ -46,15 +43,15 @@ class SearchInput extends Component {
             <input
               id="search"
               type="search"
-              value={search}
+              value={input}
               placeholder="Search a country..."
-              onChange={this.onInput}
+              onChange={this.props.inputHandler}
               onFocus={this.onFocus}
               onBlur={this.onBlur}
               autoComplete="off"
             />
           </div>
-          {search.length > 1 && filtered.length > 0 && (
+          {input.length > 1 && filtered.length > 0 && (
             <ul className={classes.list}>
               {filtered.map(item => (
                 <li
@@ -88,11 +85,12 @@ function mapStateToProps(state) {
 // }
 
 function mapDispatchToProps(dispatch) {
-	return {
-	  onGetTracks: country => {
-		dispatch(asyncGetTracks(country));
-	  },
-	};
-  }
+  return {
+    inputHandler: e => dispatch(inputValue(e.target.value)),
+    onGetTracks: country => {
+      dispatch(asyncGetTracks(country));
+    }
+  };
+}
 
-export default connect(mapStateToProps,mapDispatchToProps)(SearchInput);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

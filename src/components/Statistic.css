@@ -1,12 +1,36 @@
 .head {
-  position: absolute;
-  width: 100%;
-  height: 60px;
-  left: 0px;
-  top: 0px;
-  background: #F2F2F2;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	position: absolute;
+	width: 100%;
+	height: 75px;
+	left: 0px;
+	top: 0px;
+	background: #f2f2f2;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	z-index: 1000;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+  }
+  
+.wrapperSecond {
+	display: flex;
+	align-items: center;
 }
+
+.menuItems li span {
+	color: green
+}
+
+.headText {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 40px;
+	letter-spacing: 2px;
+}
+
+/* 
+
 .countryImg {
   position: absolute;
   left: 72.5%;
@@ -18,25 +42,23 @@
   background-position: center;
   background-size: cover;
   background: url(img/_unknown.png);
-  border: 2px solid #0EA9EC;
+  border: 2px solid #0ea9ec;
   border-radius: 32px;
+  display: none;
 }
 
-p.countryName {
+div.countryName {
   position: absolute;
-  width: 233px;
-  height: 23px;
-  left: 75.5%;
-  top: -19.6%;
+  
 
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
-  line-height: 29px;
+
   text-decoration-line: underline;
   text-transform: capitalize;
 
-  color: #0EA9EC;
+  color: #0ea9ec;
 }
 
 .down {
@@ -62,10 +84,80 @@ p.countryName {
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
-.stats{
+.stats {
   font-size: 10px;
   position: absolute;
   top: 0.2%;
   right: 15%;
   left: 56%;
 }
+
+#currentCases {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  right: -28%;
+  top: -4px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+}
+
+#newCases {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 125%;
+  top: -4px;
+  font-style: normal;
+  font-weight: normal;
+  color: #1d8440;
+}
+
+#deaths {
+  position: absolute;
+  width: 91px;
+  height: 11px;
+  right: -22.5%;
+  top: 10px;
+  font-style: normal;
+  font-weight: normal;
+
+  color: #000000;
+}
+
+
+#recovered {
+  position: absolute;
+  width: 109px;
+  right: -27%;
+  top: 23px;
+  top: 23px;
+
+  font-style: normal;
+  font-weight: normal;
+
+  color: #000000;
+}
+#recoveredText {
+  position: absolute;
+  width: 109px;
+  height: 11px;
+  left: 86%;
+  top: 23px;
+
+  font-style: normal;
+  font-weight: normal;
+
+  color: #000000;
+}
+#newRecovered {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 93%;
+  top: 23px;
+  font-style: normal;
+  font-weight: normal;
+  color: #1d8440;
+} */

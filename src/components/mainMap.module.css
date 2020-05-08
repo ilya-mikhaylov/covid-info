@@ -1,11 +1,15 @@
 .map {
-  width: 75%;
-  height: 789px;
+  width: 63%;
+  height: 800px;
   position: relative;
+  /* padding-left: 100px; */
+  display: block;
+  margin-left: 40px;
+  z-index: 0;
 }
 
 svg {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 g {
