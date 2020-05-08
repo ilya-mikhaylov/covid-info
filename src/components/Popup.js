@@ -25,6 +25,7 @@ class Popup extends Component {
         ) : (
           <p id="modalText">{this.props.limit}</p>
         )}
+        {this.props.children}
       </div>
     );
   }

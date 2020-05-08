@@ -25,8 +25,6 @@ class Articles extends Component {
   }
 
   render() {
-    console.log("TTTTTT", this.props.limit);
-
     const { articleDid } = this.state;
     const { countryJSONasync } = this.props;
 
@@ -48,7 +46,6 @@ class Articles extends Component {
           </ul>
           
         )}
-        
       </React.Fragment>
     );
   }
