@@ -64,7 +64,7 @@ class Statistic extends Component {
                   <span>{this.state.countryJSON.newCases}</span>
                 </li>
                 <li>Deaths: {this.state.countryJSON.totalDeaths}</li>
-                <li>Recovered {this.state.countryJSON.totalRecovered}</li>
+                <li>Recovered: {this.state.countryJSON.totalRecovered}</li>
               </ul>
             </div>
             {/* </React.Fragment> */}

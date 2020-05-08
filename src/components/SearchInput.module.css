@@ -5,10 +5,10 @@
   border: 1px solid lightgray;
   border-radius: 1.5em;
   overflow: hidden;
-  /* position: absolute; */
+
   right: 5%;
   top: 35%;
-  /* margin-top: 17px; */
+
 }
 .wrapper:hover,
 .wrapper.focus {
@@ -37,7 +37,7 @@
 
 .list {
   list-style: none;
-  margin: 0;
+  margin-top: 136px;
   padding: 0;
   padding-bottom: 1.5em;
   border-top: 1px solid lightgray;
