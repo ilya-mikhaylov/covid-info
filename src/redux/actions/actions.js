@@ -1,28 +1,37 @@
 import { CHANGE, CHANGE_INPUT, CHANGE_ASYNC } from "./actionTypes";
 
-
 export const asyncGetTracks = country => {
   return async dispatch => {
-	// let country = e.target.getAttribute("aria-label");
-	if (country === 'Russian Federation') {
-		country = 'Russia';
-	}
-	
-    const response = await fetch(
-      `http://localhost:7000/news?country=${country}`
-    );
-    const json = await response.json();
+    if (country) {
+      if (country === "Russian Federation") {
+        country = "Russia";
+      } else if (country.trim() === "United States") {
+        country = "USA";
+      }
 
-    const responseСountriesLimit = await fetch(
-      `http://localhost:7000/restrictions?country=${country}`
-    );
-    const jsonСountriesLimit = await responseСountriesLimit.json();
-    let limit = jsonСountriesLimit.response;
+      const response = await fetch(
+        `http://localhost:7000/news?country=${country}`
+      );
+      const json = await response.json();
 
-    dispatch({
-      type: CHANGE_ASYNC,
-      payload: { json, country, limit }
-    });
+      const responseСountriesLimit = await fetch(
+        `http://localhost:7000/restrictions?country=${country}`
+      );
+      const jsonСountriesLimit = await responseСountriesLimit.json();
+      let limit = jsonСountriesLimit.response;
+
+      const responseStats = await fetch(
+        `http://localhost:7000/stats?country=${country}`
+      );
+      const jsonResponseStats = await responseStats.json();
+
+      dispatch({
+        type: CHANGE_ASYNC,
+        payload: { json, country, limit, jsonResponseStats }
+      });
+    } else {
+      return;
+    }
   };
 };
 
@@ -34,10 +43,8 @@ export function changeCountry(e) {
 }
 
 export function inputValue(value) {
-	return {
-		type: CHANGE_INPUT,
-		payload: value
-	}
+  return {
+    type: CHANGE_INPUT,
+    payload: value
+  };
 }
-
-

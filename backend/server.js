@@ -13,10 +13,10 @@ const NewsAPI = require('newsapi');
 const rp = require('request-promise');
 const $ = require('cheerio');
 
-const newsApiKey = process.env.NEWS_API_KEY;
-// const newsApi = new NewsAPI(newsApiKey);
+// const newsApiKey = process.env.NEWS_API_KEY;
+const newsApi = new NewsAPI('982d383c03754593b1144b5eb9c45e44');
 
-const statsApiKey = process.env.STATS_API_KEY;
+const statsApiKey = 'bd99239aa4msh89027e7714dd281p1f11d3jsn3a3885b1e916';
 const statsApi = null;
 
 
@@ -307,88 +307,88 @@ const url = 'https://www.kayak.com/travel-restrictions/';
 app.use(cors());
 
 app.get('/news', async (req, res) => {
-  // let { country, offset } = req.query;
-  // let date = moment();
-  // if (offset !== 0 || offset !== undefined) {
-  //   date = date.subtract(offset, 'days');
-  // }
-  // if (country === undefined) {
-  //   country = 'World';
-  // } else if (country === 'S. Korea') {
-  //   country = 'South Korea';
-  // } else if (country === 'N. Korea') {
-  //   country = 'North Korea';
-  // }
-  // newsApi.v2.everything({
-  //   q: `coronavirus ${country}`,
-  //   from: moment(date).format('YYYY-MM-DD'),
-  //   to: moment(date).format('YYYY-MM-DD'),
-  //   language: 'en',
-  //   sortBy: 'relevancy',
-  //   page: 1,
-  // }).then(response => {
-  //   console.log(response);
-  //   const news = response.articles.map(
-  //     (item) => ({
-  //       title: item.title,
-  //       description: item.description,
-  //       source: item.source.name,
-  //       url: item.url,
-  //       image: item.urlToImage,
-  //       date: moment(item.publishedAt).format('DD.MM.YYYY'),
-  //     }),
-  //   );
-  //   res.json({ news });
-  // });
+  let { country, offset } = req.query;
+  let date = moment();
+  if (offset !== 0 || offset !== undefined) {
+    date = date.subtract(offset, 'days');
+  }
+  if (country === undefined) {
+    country = 'World';
+  } else if (country === 'S. Korea') {
+    country = 'South Korea';
+  } else if (country === 'N. Korea') {
+    country = 'North Korea';
+  }
+  newsApi.v2.everything({
+    q: `coronavirus ${country}`,
+    from: moment(date).format('YYYY-MM-DD'),
+    to: moment(date).format('YYYY-MM-DD'),
+    language: 'en',
+    sortBy: 'relevancy',
+    page: 1,
+  }).then(response => {
+    console.log(response);
+    const news = response.articles.map(
+      (item) => ({
+        title: item.title,
+        description: item.description,
+        source: item.source.name,
+        url: item.url,
+        image: item.urlToImage,
+        date: moment(item.publishedAt).format('DD.MM.YYYY'),
+      }),
+    );
+    res.json({ news });
+  });
 
-  const news = fakeNews.articles.map(
-    (item) => ({
-      title: item.title,
-      description: item.description,
-      source: item.source.name,
-      url: item.url,
-      image: item.urlToImage,
-      date: moment(item.publishedAt).format('DD.MM.YYYY'),
-    }),
-  );
-  res.json({ news });
+//   const news = fakeNews.articles.map(
+//     (item) => ({
+//       title: item.title,
+//       description: item.description,
+//       source: item.source.name,
+//       url: item.url,
+//       image: item.urlToImage,
+//       date: moment(item.publishedAt).format('DD.MM.YYYY'),
+//     }),
+//   );
+//   res.json({ news });
 });
 
 app.get('/stats', async (req, res) => {
-  // let { country } = req.query;
-  // if (country === undefined) {
-  //   country = 'World';
-  // } else if (country === 'S. Korea') {
-  //   country = 'South Korea';
-  // } else if (country === 'N. Korea') {
-  //   country = 'North Korea';
-  // }
-  // const options = {
-  //   method: 'POST',
-  //   url: 'https://covid-19-live-stats.p.rapidapi.com/country',
-  //   headers: {
-  //     'x-rapidapi-host': 'covid-19-live-stats.p.rapidapi.com',
-  //     'x-rapidapi-key': statsApiKey,
-  //     'content-type': 'application/json',
-  //     accept: 'application/json',
-  //   },
-  //   body: { country },
-  //   json: true,
-  // };
-  // request(options, (error, response, body) => {
-  //   if (error) throw new Error(error);
-  //   res.json(body[0]);
-  // });
-  const {
-    totalCases, newCases, totalDeaths, totalRecovered,
-  } = fakeStats[0];
-  res.json({
-    totalCases,
-    newCases,
-    totalDeaths,
-    totalRecovered,
+	let { country } = req.query;
+	if (country === undefined) {
+	  country = 'World';
+	} else if (country === 'S. Korea') {
+	  country = 'South Korea';
+	} else if (country === 'N. Korea') {
+	  country = 'North Korea';
+	}
+	const options = {
+	  method: 'POST',
+	  url: 'https://covid-19-live-stats.p.rapidapi.com/country',
+	  headers: {
+		'x-rapidapi-host': 'covid-19-live-stats.p.rapidapi.com',
+		'x-rapidapi-key': statsApiKey,
+		'content-type': 'application/json',
+		accept: 'application/json',
+	  },
+	  body: { country },
+	  json: true,
+	};
+	request(options, (error, response, body) => {
+	  if (error) throw new Error(error);
+	  res.json(body[0]);
+	});
+	// const {
+	//   totalCases, newCases, totalDeaths, totalRecovered,
+	// } = fakeStats[0];
+	// res.json({
+	//   totalCases,
+	//   newCases,
+	//   totalDeaths,
+	//   totalRecovered,
+	// });
   });
-});
 
 app.get('/restrictions', async (req, res) => {
   let { country } = req.query;

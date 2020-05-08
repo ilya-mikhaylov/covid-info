@@ -1,10 +1,11 @@
 import { CHANGE, CHANGE_ASYNC, CHANGE_INPUT } from "../actions/actionTypes";
 
 let initialState = {
-  country: "world",
+  country: "World",
   countryJSONasync: "",
   limit: "",
-  input: ""
+  input: "",
+  stats: ""
 };
 
 export default function mapState(state = initialState, action) {
@@ -19,7 +20,8 @@ export default function mapState(state = initialState, action) {
         countryJSONasync: action.payload,
         country: action.payload.country,
 		limit: action.payload.limit,
-		input: ""
+		input: "",
+		stats: action.payload.jsonResponseStats
       };
     default:
       return state;

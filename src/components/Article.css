@@ -1,5 +1,6 @@
 .newsBlocks {
   margin-left: 10px;
+  margin-top: 50px;
 }
 .texts {
   margin-top: 20px;
@@ -18,6 +19,9 @@
 .sources {
   margin-top: 20px;
   margin-bottom: 5px;
+  font-size: 30px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
 }
 
 .dates {
@@ -27,7 +31,7 @@
 .imgs {
   margin-top: 5px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 300px;
+  /* height: 300px; */
   max-width: 360px;
   margin-bottom: 15px;
 }
