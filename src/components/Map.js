@@ -3,7 +3,7 @@ import AmCharts from "@amcharts/amcharts3-react";
 import { connect } from "react-redux";
 import classes from "../components/mainMap.module.css";
 import { asyncGetTracks } from "../redux/actions/actions";
-
+import "./Map.css"
 
 class Map extends Component {
   async getDataRest(country) {

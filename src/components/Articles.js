@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Article from './Article';
-
+import "./Articles.css";
 class Articles extends Component {
   state = {
     countryJSON: [],
@@ -33,14 +33,14 @@ class Articles extends Component {
     return (
       <React.Fragment>
         {countryJSONasync.length === 0 ? (
-          <ul>
+          <ul className="articals">
             {articleDid.length > 0 &&
               articleDid.map((elem, index) => {
                 return <Article key={index} article={elem} />;
               })}
           </ul>
         ) : (
-          <ul>
+          <ul className="articals">
             {countryJSONasync.json.news.length > 0 &&
               countryJSONasync.json.news.map((elem, index) => {
                 return <Article key={index} article={elem} />;
