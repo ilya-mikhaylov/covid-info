@@ -313,9 +313,6 @@ app.get('/news', async (req, res) => {
   //   date = date.subtract(offset, 'days');
   // }
   // if (country === undefined) {
-  //   country = 'world';
-  // }
-  // if (country === undefined) {
   //   country = 'World';
   // } else if (country === 'S. Korea') {
   //   country = 'South Korea';
