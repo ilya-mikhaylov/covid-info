@@ -31,19 +31,19 @@ class Articles extends Component {
     return (
       <React.Fragment>
         {countryJSONasync.length === 0 ? (
-          <ul className="articals">
+          <div className="articals">
             {articleDid.length > 0 &&
               articleDid.map((elem, index) => {
                 return <Article key={index} article={elem} />;
               })}
-          </ul>
+          </div>
         ) : (
-          <ul className="articals">
+          <div className="articals">
             {countryJSONasync.json.news.length > 0 &&
               countryJSONasync.json.news.map((elem, index) => {
                 return <Article key={index} article={elem} />;
               })}
-          </ul>
+          </div>
           
         )}
       </React.Fragment>

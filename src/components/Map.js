@@ -3,7 +3,8 @@ import AmCharts from "@amcharts/amcharts3-react";
 import { connect } from "react-redux";
 import classes from "../components/mainMap.module.css";
 import { asyncGetTracks } from "../redux/actions/actions";
-import "./Map.css"
+import "./Map.css";
+
 
 class Map extends Component {
  
@@ -20,11 +21,13 @@ class Map extends Component {
       type: "map",
       pathToImages: "http://www.amcharts.com/lib/3/images/",
       addClassNames: true,
-      fontSize: 15,
+	  fontSize: 15,
+	//   handDrawThickness: 10,
+	//   handDrawn: true,
       color: "#FFFFFF",
       projection: "mercator",
       backgroundAlpha: 1,
-      backgroundColor: "rgba(80,80,80,1)",
+      backgroundColor: "#fff",
       dataProvider: {
         map: "worldLow",
         getAreasFromMap: true,
@@ -47,14 +50,16 @@ class Map extends Component {
         verticalPadding: 15
       },
       areasSettings: {
-        color: "rgba(129,129,129,1)",
-        outlineColor: "rgba(80,80,80,1)",
-        rollOverOutlineColor: "rgba(80,80,80,1)",
+        color: "#0EA9EC",
+        outlineColor: "#0B82B5",
+        rollOverColor: "#CCECFA",
+        rollOverOutlineColor: "#fff",
         rollOverBrightness: 20,
-        selectedBrightness: 20,
+        selectedBrightness: 100,
         selectable: true,
         unlistedAreasAlpha: 0,
-        unlistedAreasOutlineAlpha: 0
+		unlistedAreasOutlineAlpha: 0,
+		strokeWidth: 5
       },
       imagesSettings: {
         alpha: 1,
@@ -90,7 +95,7 @@ class Map extends Component {
   }
 
   render() {
-	console.log('aaaaaaa', this.props);
+
     const { onGetTracks } = this.props;
     return (
       <React.Fragment>
@@ -100,7 +105,6 @@ class Map extends Component {
           className={classes.map}
         ></div>
         {this.props.children}
-        
       </React.Fragment>
     );
   }
