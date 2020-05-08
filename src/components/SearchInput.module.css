@@ -1,0 +1,71 @@
+.wrapper {
+	max-width: 200px;
+	padding: 0 1.5em;
+	background: white;
+	border: 1px solid lightgray;
+	border-radius: 1.5em;
+	overflow: hidden;
+  }
+  .wrapper:hover, .wrapper.focus {
+	box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  }
+  
+  .search {
+	display: flex;
+	height: 3em;
+	align-items: center;
+  }
+  .search input {
+	flex: 1;
+	width: 100%;
+	border: 0;
+  }
+  .search i {
+	color: tomato;
+  }
+  
+  :focus {
+	outline: none;
+  }
+  
+  .list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 1.5em;
+	border-top: 1px solid lightgray;
+	max-height: 0;
+	overflow: hidden;
+	overflow-y: auto;
+	animation: enlarge .25s forwards;
+  }
+  .list li {
+	margin-right: -1.5em;
+	margin-left: -1.5em;
+	padding: 0 1.5em;
+	line-height: 1.5;
+	cursor: pointer;
+  }
+  .list li:hover {
+	background: whitesmoke;
+  }
+  
+  .result {
+	display: flex;
+	align-items: center;
+  }
+  .result b {
+	margin-right: 0.5em;
+  }
+  .result span {
+	margin: 0 .5em;
+	width: 1em;
+	height: 1em;
+	border-radius: .5em;
+  }
+  
+  @keyframes enlarge {
+	to {
+	  max-height: 10em;
+	}
+  }

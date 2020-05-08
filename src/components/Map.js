@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import classes from "../components/mainMap.module.css";
 import { asyncGetTracks } from "../redux/actions/actions";
 
-
 class Map extends Component {
+ 
   async getDataRest(country) {
     const response = await fetch(
       `http://localhost:7000/news?country=${country}`
@@ -89,6 +89,7 @@ class Map extends Component {
   }
 
   render() {
+	console.log('aaaaaaa', this.props);
     const { onGetTracks } = this.props;
     return (
       <React.Fragment>
@@ -97,7 +98,8 @@ class Map extends Component {
           id="chartdiv"
           className={classes.map}
         ></div>
-		{this.props.children}
+        {this.props.children}
+        
       </React.Fragment>
     );
   }
@@ -105,15 +107,16 @@ class Map extends Component {
 
 function mapStateToProps(state) {
   return {
-    country: state.country
+    country: state.country,
+    input: state.input
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     onGetTracks: e => {
-      dispatch(asyncGetTracks(e));
-    }
+      dispatch(asyncGetTracks(e.target.getAttribute("aria-label")));
+    },
   };
 }
 

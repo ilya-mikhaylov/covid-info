@@ -3,6 +3,7 @@ import Statistic from "./components/Statistic.js";
 import Map from "./components/Map";
 import Articles from "./components/Articles";
 import Popup from "./components/Popup";
+import PopupButton from './components/PopupButton';
 
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
@@ -24,7 +25,9 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Map>
-          <Popup />
+          <Popup>
+            <PopupButton />
+          </Popup>
         </Map>
         <Articles />
         <Statistic />

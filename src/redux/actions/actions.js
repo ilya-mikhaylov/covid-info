@@ -1,9 +1,13 @@
-import { CHANGE } from "./actionTypes";
-import { CHANGE_ASYNC } from "./actionTypes";
+import { CHANGE, CHANGE_INPUT, CHANGE_ASYNC } from "./actionTypes";
 
-export const asyncGetTracks = e => {
+
+export const asyncGetTracks = country => {
   return async dispatch => {
-    let country = e.target.getAttribute("aria-label");
+	// let country = e.target.getAttribute("aria-label");
+	if (country === 'Russian Federation') {
+		country = 'Russia';
+	}
+	
     const response = await fetch(
       `http://localhost:7000/news?country=${country}`
     );
@@ -27,4 +31,11 @@ export function changeCountry(e) {
     type: CHANGE,
     payload: e.target.getAttribute("aria-label")
   };
+}
+
+export function inputValue(value) {
+	return {
+		type: CHANGE_INPUT,
+		payload: value
+	}
 }
