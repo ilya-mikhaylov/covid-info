@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import SearchInput from "./SearchInput";
+import SearchInput from "./SearchInput.js";
 import "./Statistic.css"
 
 class Statistic extends Component {
