@@ -1,0 +1,356 @@
+body {
+  font-family: Ruda;
+  color: #000000;
+  overflow: hidden;
+}
+
+#head {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+  background: #F2F2F2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#logo {
+  position: absolute;
+  width: 65.41px;
+  height: 64px;
+  left: 30px;
+  top: 0px;
+}
+
+#headText {
+  position: absolute;
+  left: 5.36%;
+  right: 63.23%;
+  top: 0.2%;
+  bottom: 92.04%;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+#githubLogo {
+  position: absolute;
+  left: 2.24%;
+  right: 96.77%;
+  top: 96.48%;
+  bottom: 1.76%;  
+}
+
+#review {
+  position: absolute;
+  left: 3.54%;
+  right: 85.1%;
+  top: 94.8%;
+  bottom: 0.83%;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  text-decoration-line: underline;
+
+  color: #0EA9EC;
+}
+
+#news
+{
+  position: absolute;
+  width: 28%;
+  height: 94.4%;
+  right: 0%;
+  top: 60px;
+  overflow: scroll;
+
+  background: #FFFFFF;
+  border-left: 4px solid rgba(14, 169, 236, 0.7);
+}
+
+#map
+{
+  position: absolute;
+  left: -30px;
+  top: 70px;
+}
+
+#countryImg {
+  position: absolute;
+  left: 72.5%;
+  right: 23.28%;
+  top: 5%;
+  bottom: 95%;
+  height: 48px;
+  width: 48px;
+  background-position: center;
+  background-size: cover;
+  background: url(img/_unknown.png);
+  border: 2px solid #0EA9EC;
+  border-radius: 32px;
+}
+
+#countryName {
+  position: absolute;
+  width: 233px;
+  height: 23px;
+  left: 75.5%;
+  top: -19.6%;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+
+  color: #0EA9EC;
+}
+
+#down {
+  position: absolute;
+  width: 30.04px;
+  height: 30.04px;
+  left: 81.7%;
+  top: 21.7%;
+
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.newsBlocks {
+  margin-left: 10px;
+}
+
+.texts {
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.sources {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.dates {
+  color: rgba(0, 0, 0, 0.44);
+}
+
+.imgs {
+  margin-top: 5px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 300px;
+  width: 475px;
+  margin-bottom: 15px;
+}
+
+.sourcesLinks {
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  text-decoration-line: underline;
+
+  color: #0EA9EC;
+  margin-left: 81%;
+  position: relative;
+}
+
+.sourcesLinks::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background: url(img/external-1767969-1502305\ 1.png);
+  background-repeat: no-repeat;
+}
+
+#currentCases {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 90%;
+  top: -12px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+}
+
+#casesText {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 86%;
+  top: -12px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+}
+#newCases {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 93%;
+  top: -12px;
+  font-style: normal;
+  font-weight: normal;
+  color: #1D8440;
+}
+
+#deaths {
+  position: absolute;
+  width: 91px;
+  height: 11px;
+  left: 90%;
+  top: 6px;
+  font-style: normal;
+  font-weight: normal;
+
+  color: #000000;
+}
+#newDeaths {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 93%;
+  top: 6px;
+  font-style: normal;
+  font-weight: normal;
+  color: #F42929;
+}
+
+#deathsText {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 86%;
+  top: 6px;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+}
+
+#recovered {
+  position: absolute;
+  width: 109px;
+  height: 11px;
+  left: 90%;
+  top: 23px;
+
+  font-style: normal;
+  font-weight: normal;
+
+  color: #000000;
+}
+#recoveredText {
+  position: absolute;
+  width: 109px;
+  height: 11px;
+  left: 86%;
+  top: 23px;
+
+  font-style: normal;
+  font-weight: normal;
+
+  color: #000000;
+}
+#newRecovered {
+  position: absolute;
+  width: 116px;
+  height: 12px;
+  left: 93%;
+  top: 23px;
+  font-style: normal;
+  font-weight: normal;
+  color: #1D8440;
+}
+
+hr {
+  border: 1px solid #0EA9EC;
+}
+
+#buttonBase {
+  z-index: 4;
+  position: absolute;
+  left: 64.92%;
+  right: 31.02%;
+  top: 88.28%;
+  bottom: 4.5%;
+  background: #F2F2F2;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 41px;
+}
+#buttonBodyCircle {
+  z-index: 5;
+  position: absolute;
+  left: 65.42%;
+  right: 31.52%;
+  top: 89.21%;
+  bottom: 5.43%;
+  border-radius: 41px;
+  background: #F2F2F2;
+  border: 5px solid #0EA9EC;
+  box-sizing: border-box;
+}
+#buttonBodySlash {
+  z-index: 6;
+  position: absolute;
+  left: 65.4%;
+  right: 31.7%;
+  top: 91.6%;
+  bottom: 7.8%;
+  background: #0EA9EC;
+  transform: rotate(45deg);
+}
+.circle {
+  display: none;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: deepskyblue;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 62.92%;
+  bottom: 0.2%;
+  opacity: 0;
+  animation: scaleIn 4s infinite cubic-bezier(.36, .11, .89, .32);
+}
+#modal {
+  position: absolute;
+  left: 45%;
+  right: 31%;
+  top: 66.61%;
+  bottom: 3.59%;
+  padding-right: 10px;
+  padding-left: 10px;
+  background: #F2F2F2;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 41px;
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(.5, .5);
+    opacity: .5;
+  }
+  to {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+#modalText
+{
+  height: 130px;
+  overflow-y: scroll;
+}

@@ -1,0 +1,58 @@
+
+#buttonBase {
+	z-index: 4;
+	position: absolute;
+	left: 64.92%;
+	right: 31.02%;
+	top: 88.28%;
+	bottom: 4.5%;
+	background: #F2F2F2;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 41px;
+	width: 78px;
+  }
+  #buttonBodyCircle {
+	z-index: 5;
+	position: absolute;
+	left: 65.42%;
+	right: 31.52%;
+	top: 89.21%;
+	bottom: 5.43%;
+	border-radius: 41px;
+	background: #F2F2F2;
+	border: 5px solid #0EA9EC;
+	box-sizing: border-box;
+  }
+  #buttonBodySlash {
+	z-index: 6;
+	position: absolute;
+	left: 65.4%;
+	right: 31.7%;
+	top: 91.6%;
+	bottom: 7.8%;
+	background: #0EA9EC;
+	transform: rotate(45deg);
+  }
+  .circle {
+	/* display: none; */
+	z-index: 3;
+	border-radius: 50%;
+	background-color: deepskyblue;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 62.92%;
+	bottom: 0.2%;
+	opacity: 0;
+	animation: scaleIn 4s infinite cubic-bezier(.36, .11, .89, .32);
+  }
+  @keyframes scaleIn {
+	from {
+	  transform: scale(.5, .5);
+	  opacity: .5;
+	}
+	to {
+	  transform: scale(1.5, 1.5);
+	  opacity: 0;
+	}
+  }
