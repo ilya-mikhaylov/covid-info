@@ -9,7 +9,7 @@ class Statistic extends Component {
   };
   async getDataRest(country) {
     const response = await fetch(
-      `http://localhost:7000/stats?country=${country}`
+      `/stats?country=${country}`
     );
     const json = await response.json();
     return json;
