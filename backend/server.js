@@ -13,10 +13,10 @@ const NewsAPI = require('newsapi');
 const rp = require('request-promise');
 const $ = require('cheerio');
 
-// const newsApiKey = process.env.NEWS_API_KEY;
-const newsApi = new NewsAPI('982d383c03754593b1144b5eb9c45e44');
+const newsApiKey = process.env.NEWS_API_KEY;
+const newsApi = new NewsAPI(newsApiKey);
 
-const statsApiKey = 'bd99239aa4msh89027e7714dd281p1f11d3jsn3a3885b1e916';
+const statsApiKey = process.env.STATS_API_KEY;
 const statsApi = null;
 
 
