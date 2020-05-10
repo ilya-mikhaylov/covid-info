@@ -13,7 +13,7 @@ const NewsAPI = require('newsapi');
 const rp = require('request-promise');
 const $ = require('cheerio');
 const path = require('path');
-const publicPath = path.join(__dirname, 'frontend/build');
+const publicPath = path.join(__dirname, 'client/build');
 
 const newsApiKey = process.env.NEWS_API_KEY;
 const newsApi = new NewsAPI(newsApiKey);
