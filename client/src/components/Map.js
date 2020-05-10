@@ -10,7 +10,7 @@ class Map extends Component {
  
   async getDataRest(country) {
     const response = await fetch(
-      `http://localhost:7000/news?country=${country}`
+      `/news?country=${country}`
     );
     const json = await response.json();
     return json;

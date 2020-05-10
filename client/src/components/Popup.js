@@ -8,7 +8,7 @@ class Popup extends Component {
   };
   async componentDidMount() {
     const response = await fetch(
-      `http://localhost:7000/restrictions?country=${this.props.country}`
+      `/restrictions?country=${this.props.country}`
     );
     const json = await response.json();
 

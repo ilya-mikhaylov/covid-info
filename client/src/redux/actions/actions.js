@@ -10,18 +10,18 @@ export const asyncGetTracks = country => {
       }
 
       const response = await fetch(
-        `http://localhost:7000/news?country=${country}`
+        `/news?country=${country}`
       );
       const json = await response.json();
 
       const responseСountriesLimit = await fetch(
-        `http://localhost:7000/restrictions?country=${country}`
+        `/restrictions?country=${country}`
       );
       const jsonСountriesLimit = await responseСountriesLimit.json();
       let limit = jsonСountriesLimit.response;
 
       const responseStats = await fetch(
-        `http://localhost:7000/stats?country=${country}`
+        `/stats?country=${country}`
       );
       const jsonResponseStats = await responseStats.json();
 
