@@ -1,7 +1,7 @@
 .modal {
 	position: absolute;
-	left: 8%;
-    right: 67%;
+	left: 2%;
+    right: 75%;
 	top: 66.61%;
 	bottom: 3.59%;
 	padding-right: 10px;
@@ -12,7 +12,4 @@
 	height: 230px;
 	overflow-y: scroll;
 	z-index: 0;
-  
-
-
   }

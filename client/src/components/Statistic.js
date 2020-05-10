@@ -36,7 +36,8 @@ class Statistic extends Component {
       <>
         <div className="head">
           <div className="headText">Covid-19 INFO</div>
-          <div className="wrapperSecond"></div>
+          <div className="headLink"><a href="https://github.com/ilya-mikhaylov/covid-info">Review our project on GitHub</a></div>
+          <div className="wrapperSecond">
           <SearchInput className="countryName" />
           <div className="menuItemsWrapper">
 			  { stats.length === 0 
@@ -58,7 +59,7 @@ class Statistic extends Component {
               <li>Deaths: { stats.totalDeaths }</li>
               <li>Recovered: { stats.totalRecovered }</li>
             </ul> }
-            
+            </div>
           </div>
         </div>
       </>
