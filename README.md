@@ -10,9 +10,7 @@ npm start
 
 
 
-![Example](https://github.com/ilya-mikhaylov
-/
-covid-info/raw/master/src/gif.gif)
+![Example](https://github.com/ilya-mikhaylov/covid-info/raw/develop/src/gif.gif)
 
 
 
