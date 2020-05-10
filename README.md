@@ -1,8 +1,20 @@
-## 123
+## COVID-INFO
 
-description
 
-### 456
+## Запуск программы
 
-description<br />
-description
+```sh
+npm i 
+npm start
+```
+
+
+
+![Example](https://github.com/ilya-mikhaylov
+/
+covid-info/raw/master/src/gif.gif)
+
+
+
+## Стек технологий
+ReactJS, Redux, Redux Thunk, NodeJS, Charts
